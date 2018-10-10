@@ -1,0 +1,319 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction &mdash; Python Tutorial  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Python Tutorial  documentation" href="../index.html"/>
+        <link rel="next" title="Install for Linux" href="install_linux.html"/>
+        <link rel="prev" title="Course Outline" href="course_outline.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Python Tutorial
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="course_outline.html">Course Outline</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#matlab-vs-python">MATLAB vs. Python</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#numpy-for-matlab-users">Numpy for MATLAB users</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#common-libraries">Common Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#quickstart">Quickstart</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="install_linux.html">Install for Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install_windows.html">Installation for Windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packages.html">Installing and updating packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="editors.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Python Tutorial</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Introduction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/include/matlab_v_python.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction">
+<span id="introduction"></span><h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="matlab-vs-python">
+<span id="matlab-vs-python"></span><h2>MATLAB vs. Python<a class="headerlink" href="#matlab-vs-python" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th align="center">MATLAB</th>
+<th align="center">Python</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Commercial</td>
+<td align="center">Open Source</td>
+</tr>
+<tr>
+<td align="center">New functions via MATLAB Toolkits<br>(no package manager)</td>
+<td align="center">Installation of new modules with<br>package manager (conda or pip)</td>
+</tr>
+<tr>
+<td align="center">Mainly procedual programming<br>(Objects exists but are a hassle)</td>
+<td align="center">Object oriented</td>
+</tr>
+<tr>
+<td align="center">Mathematical Programming Language</td>
+<td align="center">Gernaeral Purpose Language with<br>many mathematical modules</td>
+</tr>
+<tr>
+<td align="center">No Namespaces for Core-Functions</td>
+<td align="center">Proper Namespaces (e.g. <code>plt.plot</code> instead of <code>plot</code>)</td>
+</tr>
+<tr>
+<td align="center">GUI included</td>
+<td align="center">Various GUIs available.<br>We recommend <a href="https://www.jetbrains.com/pycharm/">Pycharm</a></td>
+</tr>
+<tr>
+<td align="center">Download: <a href="https://de.mathworks.com/downloads/">Mathworks</a></td>
+<td align="center">Download: <a href="https://www.anaconda.com/download/">Anaconda</a></td>
+</tr>
+</tbody>
+</table><div class="section" id="numpy-for-matlab-users">
+<span id="numpy-for-matlab-users"></span><h3>Numpy for MATLAB users<a class="headerlink" href="#numpy-for-matlab-users" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://docs.scipy.org/doc/numpy-1.15.0/user/numpy-for-matlab-users.html">https://docs.scipy.org/doc/numpy-1.15.0/user/numpy-for-matlab-users.html</a></p>
+</div>
+</div>
+<div class="section" id="common-libraries">
+<span id="common-libraries"></span><h2>Common Libraries<a class="headerlink" href="#common-libraries" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Numpy (Vector and Matrix operations, Numeric computing)</li>
+<li>Matplotlib (Plotting)</li>
+<li>Pandas (Table operations)</li>
+<li>Scikit-Learn (Machine Learning)</li>
+<li>Tensorflow / PyTorch (Neural Networks)</li>
+<li>SymPy (Symbolic computations)</li>
+<li>Seaborn (Advanced Plotting)</li>
+</ul>
+</div>
+<div class="section" id="quickstart">
+<span id="quickstart"></span><h2>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="n">U_0</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span> <span class="c1"># V</span>
+<span class="n">u_peak</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="c1"># V</span>
+<span class="n">f_0</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span> <span class="c1"># 1/s</span>
+
+<span class="c1"># Timevector in s (Sequence of numbers)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="mf">0.04</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.001</span><span class="p">);</span>
+<span class="n">u</span> <span class="o">=</span> <span class="n">U_0</span> <span class="o">+</span> <span class="n">u_peak</span><span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f_0</span><span class="o">*</span><span class="n">t</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="s1">&#39;o--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Zeit $t$ / s&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Spannung $u(t)$ / V&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="install_linux.html" class="btn btn-neutral float-right" title="Install for Linux" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="course_outline.html" class="btn btn-neutral" title="Course Outline" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Christian Thiel and Christoph Boeddeker.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
