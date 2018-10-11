@@ -1,0 +1,424 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Numpy &mdash; Python Tutorial  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Python Tutorial  documentation" href="../index.html"/>
+        <link rel="next" title="Editors" href="editors.html"/>
+        <link rel="prev" title="Installing and updating packages" href="packages.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Python Tutorial
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="course_outline.html">Course Outline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matlab_v_python.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install_linux.html">Installation for Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="install_windows.html">Installation for Windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packages.html">Installing and updating packages</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Numpy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#numpy-vs-python-list">Numpy vs python list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#numpy-array-properties">Numpy array properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#numpy-array-manipulations">Numpy array manipulations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#transpose">Transpose</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reshape">Reshape</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#getitem-slicing-and-indexing">Getitem: Slicing and indexing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-operations">Basic operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-broadcasting">Basic broadcasting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#some-usefull-function">Some usefull function</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#einsum">Einsum</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#further-information">Further information</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="editors.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Python Tutorial</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Numpy</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/include/numpy.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="numpy">
+<span id="numpy"></span><h1>Numpy<a class="headerlink" href="#numpy" title="Permalink to this headline">¶</a></h1>
+<p>Inspired from https://www.youtube.com/watch?v=8JfDAm9y_7s</p>
+<p>What is Numpy:</p>
+<ul class="simple">
+<li>Core library for scientific computing in Python<ul>
+<li>It is nearly impossible to find a scientific package in Python that does not depend on numpy</li>
+</ul>
+</li>
+<li>Defines a multidimensional array object and the tools to work on them<ul>
+<li>Linear algebra, DFT, random numbers, ...</li>
+</ul>
+</li>
+</ul>
+<p><img alt="numpy_array.png" src="../_images/numpy_array.png" />
+https://www.oreilly.com/library/view/elegant-scipy/9781491922927/ch01.html</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="section" id="numpy-vs-python-list">
+<span id="numpy-vs-python-list"></span><h2>Numpy vs python list<a class="headerlink" href="#numpy-vs-python-list" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Less memory<ul>
+<li>Numpy has a dtype (datatype) for the elements (Store content as bytestream with a header that describes the content)<ul>
+<li>The user do not to care over the implementation.</li>
+</ul>
+</li>
+<li>Each list element can have a different type</li>
+</ul>
+</li>
+<li>Faster<ul>
+<li>Numpy functions (np.sum, np.linalg.inv, np.fft.fft) are implemented in C/C++ (Blas, LAPACK, MKL, ...)</li>
+<li>Python list has always the interpreter overhead</li>
+</ul>
+</li>
+<li>Easier to use for numerix problems<ul>
+<li>Numpy supports matrix operations (np.matmul, np.einsum)</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="numpy-array-properties">
+<span id="numpy-array-properties"></span><h2>Numpy array properties<a class="headerlink" href="#numpy-array-properties" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">shape</span>  <span class="c1"># the shape of the array</span>
+<span class="go">(4, 3, 2)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">ndim</span>  <span class="c1"># the number of dimensions of the array</span>
+<span class="go">(4, 3, 2)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">dtype</span>  <span class="c1"># the dtype of the array</span>
+<span class="go">np.float64</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">size</span>  <span class="c1"># the number of elements</span>
+<span class="go">24</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>  <span class="c1"># Note: len returns the length of the fist dimension to be compatible with python lists</span>
+<span class="go">4</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="numpy-array-manipulations">
+<span id="numpy-array-manipulations"></span><h2>Numpy array manipulations<a class="headerlink" href="#numpy-array-manipulations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="transpose">
+<span id="transpose"></span><h3>Transpose<a class="headerlink" href="#transpose" title="Permalink to this headline">¶</a></h3>
+<p>A transpose in numpy means array transpose and not matrix transpose</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">T</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">(2, 3, 4)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="go">(4, 2, 3)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="reshape">
+<span id="reshape"></span><h3>Reshape<a class="headerlink" href="#reshape" title="Permalink to this headline">¶</a></h3>
+<p>You can change the shape of an array with reshape. The memory layout stay and only the interpretation changes</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>  <span class="c1"># same as np.reshape(a, [2, 8])</span>
+</pre></div>
+</div>
+<p><img alt="numpy-reshape-examples.jpg" src="../_images/numpy-reshape-examples.jpg" />
+http://backtobazics.com/wp-content/uploads/2018/08/numpy-reshape-examples.jpg</p>
+</div>
+<div class="section" id="getitem-slicing-and-indexing">
+<span id="getitem-slicing-and-indexing"></span><h3>Getitem: Slicing and indexing<a class="headerlink" href="#getitem-slicing-and-indexing" title="Permalink to this headline">¶</a></h3>
+<p>Note: In python the index starts with 0 like in C/C++ and not with 1 as in MATLAB</p>
+<p><img alt="numpy-slice.jpg" src="../_images/numpy-slice.jpg" />
+https://image.slidesharecdn.com/numpytalksiam-110305000848-phpapp01/95/numpy-talk-at-siam-14-728.jpg?cb=1299283822</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">[0, 1, 2, 3, 4]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># Index with a scalar</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[:]</span>  <span class="c1"># slice with a column, here all values</span>
+<span class="go">[0, 1, 2, 3, 4]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>  <span class="c1"># values from index 1 to the end</span>
+<span class="go">[1, 2, 3, 4]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># values from begin to the last, but exclude the last. Note negative indices are allowed</span>
+<span class="go">[1, 2, 3, 4]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># Take each second value</span>
+<span class="go">[0, 2, 4]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">step</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">:</span><span class="n">step</span><span class="p">]</span>  <span class="c1"># Use all of them (start, stop, step)</span>
+<span class="go">[1, 3]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="o">...</span><span class="p">]</span>  <span class="c1"># The &quot;ellipsis&quot; in getitem, see for eplanation below</span>
+</pre></div>
+</div>
+<p>Ellipsis: The ellipsis (<code class="docutils literal"><span class="pre">...</span></code>) is a special argument to getitem. It is used to handle an unkown number of dimension. It means fill the getitem with so many colons (<code class="docutils literal"><span class="pre">:</span></code>) that on all dimensions an slicing/indexing is used.</p>
+<p>Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># equal to a[:, :, 0]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># equal to a[0, :, 1]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># equal to a[:, 0]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># equal to a[0, 1]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="basic-operations">
+<span id="basic-operations"></span><h2>Basic operations<a class="headerlink" href="#basic-operations" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal"><span class="pre">array</span></code> in numpy has many methods to manipulate them (<code class="docutils literal"><span class="pre">a.max()</span></code>, <code class="docutils literal"><span class="pre">a.sum()</span></code>, <code class="docutils literal"><span class="pre">a.reshape()</span></code>, ...). These have always a counterpart in the numpy namespace (<code class="docutils literal"><span class="pre">np.max(a)</span></code>, <code class="docutils literal"><span class="pre">np.sum(a)</span></code>, <code class="docutils literal"><span class="pre">np.reshape(a)</span></code>, ...).</p>
+<p>By default most numpy reduction functions perform the operation on the full array.
+For example <code class="docutils literal"><span class="pre">np.sum(a)</span></code> returns the sum of all elements of a, independent of the numer of dimensions of a. To perform a operation on a specific dimension these functions have an <code class="docutils literal"><span class="pre">axis</span></code> argument:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">?</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">?</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="go">?</span>
+</pre></div>
+</div>
+<p>Elementwise operations:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">**</span><span class="mi">2</span>  <span class="c1"># square, in python ** is the pow operator</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">+</span> <span class="n">a</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="basic-broadcasting">
+<span id="basic-broadcasting"></span><h2>Basic broadcasting<a class="headerlink" href="#basic-broadcasting" title="Permalink to this headline">¶</a></h2>
+<p>By default the python operators (<code class="docutils literal"><span class="pre">+</span></code>, <code class="docutils literal"><span class="pre">-</span></code>, <code class="docutils literal"><span class="pre">*</span></code>, <code class="docutils literal"><span class="pre">/</span></code>, <code class="docutils literal"><span class="pre">**</span></code>) operate elementwise (except matrix multiplication <code class="docutils literal"><span class="pre">&#64;</span></code>)
+To work elementwise it is important that the shapes match.
+At this position broadcasting is important.
+It mean, when the shapes do not match, numpy try to match them with broadcasting.</p>
+<p>Exmaples shapes and there output shapes:</p>
+<ul class="simple">
+<li>(4, 3, 2), (1, 1, 1) -&gt; (4, 3, 2)  # Singletons match with any number</li>
+<li>(4, 3, 2), (2,) -&gt; (4, 3, 2)  # Missing ndims are filled from the left with ones (not right as in MATLAB)</li>
+</ul>
+</div>
+<div class="section" id="some-usefull-function">
+<span id="some-usefull-function"></span><h2>Some usefull function<a class="headerlink" href="#some-usefull-function" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">np.linspace</span></code> vs <code class="docutils literal"><span class="pre">np.arange</span></code></li>
+<li><code class="docutils literal"><span class="pre">np.sin</span></code></li>
+<li><code class="docutils literal"><span class="pre">np.random.randn</span></code>, <code class="docutils literal"><span class="pre">np.random.normal</span></code></li>
+</ul>
+<div class="section" id="einsum">
+<span id="einsum"></span><h3>Einsum<a class="headerlink" href="#einsum" title="Permalink to this headline">¶</a></h3>
+<p>https://en.wikipedia.org/wiki/Einstein_notation</p>
+<p><img alt="numpy_einsum.png" src="../_images/numpy_einsum.png" />
+https://obilaniu6266h16.wordpress.com/2016/02/04/einstein-summation-in-numpy/</p>
+</div>
+</div>
+<div class="section" id="further-information">
+<span id="further-information"></span><h2>Further information<a class="headerlink" href="#further-information" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Numpy is a very well documented library<ul>
+<li>do an online search for a function and you find a description with some toy exampls.</li>
+</ul>
+</li>
+<li>When this introduction was not enough, there are many further online tutorials</li>
+<li>On stackoverflow are many examples for specific problems</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="editors.html" class="btn btn-neutral float-right" title="Editors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="packages.html" class="btn btn-neutral" title="Installing and updating packages" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Christian Thiel and Christoph Boeddeker.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
