@@ -8,7 +8,7 @@ What is Numpy:
  - Defines a multidimensional array object and the tools to work on them
    - Linear algebra, DFT, random numbers, ...
 
- ![numpy_array.png](../_static/numpy_array.png)
+ ![numpy_array.png](../static/numpy_array.png)
  https://www.oreilly.com/library/view/elegant-scipy/9781491922927/ch01.html
 
 ```python
@@ -60,14 +60,14 @@ You can change the shape of an array with reshape. The memory layout stay and on
 >>> b = a.reshape(2, 8)  # same as np.reshape(a, [2, 8])
 ```
 
- ![numpy-reshape-examples.jpg](../_static/numpy-reshape-examples.jpg)
+ ![numpy-reshape-examples.jpg](../static/numpy-reshape-examples.jpg)
 http://backtobazics.com/wp-content/uploads/2018/08/numpy-reshape-examples.jpg
 
 ### Getitem: Slicing and indexing
 
 Note: In python the index starts with 0 like in C/C++ and not with 1 as in MATLAB
 
- ![numpy-slice.jpg](../_static/numpy-slice.jpg)
+ ![numpy-slice.jpg](../static/numpy-slice.jpg)
 https://image.slidesharecdn.com/numpytalksiam-110305000848-phpapp01/95/numpy-talk-at-siam-14-728.jpg?cb=1299283822
 
 ```python
@@ -144,7 +144,7 @@ Exmaples shapes and there output shapes:
 ### Einsum
 https://en.wikipedia.org/wiki/Einstein_notation
 
- ![numpy_einsum.png](../_static/numpy_einsum.png)
+ ![numpy_einsum.png](../static/numpy_einsum.png)
 https://obilaniu6266h16.wordpress.com/2016/02/04/einstein-summation-in-numpy/
 
 ## Further information
