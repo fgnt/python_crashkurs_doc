@@ -93,24 +93,18 @@
 <li class="toctree-l1"><a class="reference internal" href="install_windows.html">Installation for Windows</a></li>
 <li class="toctree-l1"><a class="reference internal" href="packages.html">Installing and updating packages</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Numpy/SciPy</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#what-we-want">What we want</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#what-is-numpy">What is Numpy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#datatypes-dtype">Datatypes (dtype)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#numpy-vs-python-list">Numpy vs python list</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#array-creation">Array creation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#numpy-array-properties">Numpy array properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#numpy-array-manipulations">Numpy array manipulations</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#transpose">Transpose</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#reshape">Reshape</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#getitem-slicing-and-indexing">Getitem: Slicing and indexing</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#transpose">Transpose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reshape">Reshape</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getitem-slicing-and-indexing">Getitem: Slicing and indexing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#basic-operations">Basic operations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#basic-broadcasting">Basic broadcasting</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#getitem-insert-singleton-dimension">Getitem: Insert singleton dimension</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#einsum">Einsum</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-broadcasting">Basic broadcasting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getitem-insert-singleton-dimension">Getitem: Insert singleton dimension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#einsum">Einsum</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#further-information">Further information</a></li>
 </ul>
 </li>
@@ -208,18 +202,7 @@
     </td>
 </tr>
 </table>
-<sup><sub>https://www.scipy.org/</sub></sup><div class="section" id="what-we-want">
-<span id="what-we-want"></span><h2>What we want<a class="headerlink" href="#what-we-want" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li>Work with vectors and matrices<ul>
-<li>Support for linear algebra</li>
-</ul>
-</li>
-<li>Fast and easy to program</li>
-<li>Fast execution</li>
-</ul>
-</div>
-<div class="section" id="what-is-numpy">
+<sup><sub>https://www.scipy.org/</sub></sup><div class="section" id="what-is-numpy">
 <span id="what-is-numpy"></span><h2>What is Numpy<a class="headerlink" href="#what-is-numpy" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Core library for scientific computing in Python<ul>
@@ -230,7 +213,7 @@
 <li>Linear algebra, DFT, random numbers, ...</li>
 </ul>
 </li>
-<li>Has good documentation<ul>
+<li>Has a good documentation<ul>
 <li><a class="reference external" href="https://docs.scipy.org/doc/numpy/">https://docs.scipy.org/doc/numpy/</a></li>
 </ul>
 </li>
@@ -274,10 +257,7 @@
 <span id="numpy-vs-python-list"></span><h2>Numpy vs python list<a class="headerlink" href="#numpy-vs-python-list" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Less memory<ul>
-<li>Numpy has a dtype (datatype) for the elements (Store content as bytestream with a header that describes the content)<ul>
-<li>The user do not to care over the implementation.</li>
-</ul>
-</li>
+<li>Numpy has a dtype (datatype) for the elements (Stores content as bytestream with a header that describes the content)</li>
 <li>Each list element can have a different type</li>
 </ul>
 </li>
@@ -286,7 +266,7 @@
 <li>Python list has always the interpreter overhead</li>
 </ul>
 </li>
-<li>Easier to use for numerix problems<ul>
+<li>Easier to use for numeric problems<ul>
 <li>Numpy supports matrix operations (<code class="docutils literal"><span class="pre">np.matmul</span></code>, <code class="docutils literal"><span class="pre">np.einsum</span></code>)</li>
 </ul>
 </li>
@@ -322,14 +302,10 @@ Use a python <code class="docutils literal"><span class="pre">list</span></code>
 </pre></div>
 </div>
 <p>Strides are one reason for the efficiency of numpy.
-Usually the user do not care about the strides.
-The thing to remember from strides is, that some operations (e.g. <code class="docutils literal"><span class="pre">np.transpose</span></code>, slice) return a view to the original array with modified strides.
-Inplace operations change then the original array.</p>
+Usually the user does not care about the strides.</p>
 </div>
-<div class="section" id="numpy-array-manipulations">
-<span id="numpy-array-manipulations"></span><h2>Numpy array manipulations<a class="headerlink" href="#numpy-array-manipulations" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="transpose">
-<span id="transpose"></span><h3>Transpose<a class="headerlink" href="#transpose" title="Permalink to this headline">¶</a></h3>
+<span id="transpose"></span><h2>Transpose<a class="headerlink" href="#transpose" title="Permalink to this headline">¶</a></h2>
 <p>A transpose in numpy means array transpose and not matrix transpose</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">shape</span>
 <span class="go">(4, 3, 2)</span>
@@ -345,8 +321,9 @@ Inplace operations change then the original array.</p>
 </div>
 </div>
 <div class="section" id="reshape">
-<span id="reshape"></span><h3>Reshape<a class="headerlink" href="#reshape" title="Permalink to this headline">¶</a></h3>
-<p>You can change the shape of an array with reshape. The memory layout stay and only the interpretation changes</p>
+<span id="reshape"></span><h2>Reshape<a class="headerlink" href="#reshape" title="Permalink to this headline">¶</a></h2>
+<p>You can change the shape of an array with reshape.
+The numbers after reshape are the same, only the arrangement changes.</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>  <span class="c1"># same as np.reshape(a, [2, 8])</span>
 </pre></div>
 </div>
@@ -354,10 +331,11 @@ Inplace operations change then the original array.</p>
 <sup><sub>http://backtobazics.com/wp-content/uploads/2018/08/numpy-reshape-examples.jpg</sub></sup></p>
 </div>
 <div class="section" id="getitem-slicing-and-indexing">
-<span id="getitem-slicing-and-indexing"></span><h3>Getitem: Slicing and indexing<a class="headerlink" href="#getitem-slicing-and-indexing" title="Permalink to this headline">¶</a></h3>
+<span id="getitem-slicing-and-indexing"></span><h2>Getitem: Slicing and indexing<a class="headerlink" href="#getitem-slicing-and-indexing" title="Permalink to this headline">¶</a></h2>
 <p>In python the index starts with 0 like in C/C++ and not with 1 as in MATLAB. The syntax is: <code class="docutils literal"><span class="pre">[start:stop:step]</span></code>.
-Step is the last one and optional <code class="docutils literal"><span class="pre">[start:stop]</span></code>. Negative values are supported (e.g <code class="docutils literal"><span class="pre">[::-1]</span></code> reverses the order).
-A value for start <code class="docutils literal"><span class="pre">[:stop]</span></code> and stop <code class="docutils literal"><span class="pre">[start:]</span></code> is also optional. Examples (1d):</p>
+Step describes the spacing between two values and is optional <code class="docutils literal"><span class="pre">[start:stop]</span></code> with a default value of 1.
+Negative values are supported (e.g <code class="docutils literal"><span class="pre">[::-1]</span></code> reverses the order).
+A value for start <code class="docutils literal"><span class="pre">[:stop]</span></code> and stop <code class="docutils literal"><span class="pre">[start:]</span></code> is also optional (defaults: <code class="docutils literal"><span class="pre">start=0</span></code> and <code class="docutils literal"><span class="pre">stop=N</span></code> where <code class="docutils literal"><span class="pre">N</span></code> is the length of the dimension). Examples (1 dimensional):</p>
 <p><img alt="listindexing1.svg" src="../_images/listindexing1.svg" />
 <br> <sup><sub>https://github.com/gertingold/euroscipy-numpy-tutorial/tree/master/images</sub></sup></p>
 <ul class="simple">
@@ -366,7 +344,7 @@ A value for start <code class="docutils literal"><span class="pre">[:stop]</span
 <p>Negative indices for start and stop are also supported:</p>
 <p><img alt="listindexing2.svg" src="../_images/listindexing2.svg" />
 <br> <sup><sub>https://github.com/gertingold/euroscipy-numpy-tutorial/tree/master/images</sub></sup></p>
-<p>Some 1d code examples:</p>
+<p>Some 1 dimensinal code examples:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
 <span class="go">array([0, 1, 2, 3, 4])</span>
@@ -412,15 +390,14 @@ A value for start <code class="docutils literal"><span class="pre">[:stop]</span
 <p>and a visualisation
 <img alt="numpy-slice_t.png" src="../_images/numpy-slice_t.png" />
 <sup><sub>https://image.slidesharecdn.com/numpytalksiam-110305000848-phpapp01/95/numpy-talk-at-siam-14-728.jpg?cb=1299283822</sub></sup></p>
-<p>Two advanced indexing examples. One with a boolean mask and the other one with an array of integers:</p>
+<p>Two advanced indexing examples. One with a boolean mask and the other one with an array of integers (<code class="docutils literal"><span class="pre">%</span></code> is modulo in Python):</p>
 <p><img alt="arraygraphics_6.svg" src="../_images/arraygraphics_6.svg" />
 <img alt="arraygraphics_7.svg" src="../_images/arraygraphics_7.svg" />
 <sup><sub>https://github.com/gertingold/euroscipy-numpy-tutorial/tree/master/images</sub></sup></p>
 </div>
-</div>
 <div class="section" id="basic-operations">
 <span id="basic-operations"></span><h2>Basic operations<a class="headerlink" href="#basic-operations" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal"><span class="pre">np.ndarray</span></code> in numpy has many methods to manipulate them (<code class="docutils literal"><span class="pre">a.max()</span></code>, <code class="docutils literal"><span class="pre">a.sum()</span></code>, <code class="docutils literal"><span class="pre">a.reshape()</span></code>, ...).
+<p>The <code class="docutils literal"><span class="pre">np.ndarray</span></code> in numpy has many methods to manipulate itself (<code class="docutils literal"><span class="pre">a.max()</span></code>, <code class="docutils literal"><span class="pre">a.sum()</span></code>, <code class="docutils literal"><span class="pre">a.reshape()</span></code>, ...).
 These have always a counterpart in the numpy namespace (<code class="docutils literal"><span class="pre">np.max(a)</span></code>, <code class="docutils literal"><span class="pre">np.sum(a)</span></code>, <code class="docutils literal"><span class="pre">np.reshape(a)</span></code>, ...).
 These functions will also work where <code class="docutils literal"><span class="pre">a</span></code> is compatible with numpy,
 i.e. <code class="docutils literal"><span class="pre">np.max(a)</span></code> is equal to <code class="docutils literal"><span class="pre">np.max(np.array(a))</span></code>.</p>
@@ -565,8 +542,8 @@ For the matrix multiplication there are 3 ways to execute it:</p>
 <li><code class="docutils literal"><span class="pre">np.matmul(A,</span> <span class="pre">b)</span></code> is the recommented one (or the <code class="docutils literal"><span class="pre">&#64;</span></code> operator)</li>
 <li><code class="docutils literal"><span class="pre">A</span> <span class="pre">&#64;</span> <span class="pre">B</span></code> alternative syntax for <code class="docutils literal"><span class="pre">np.matmul</span></code></li>
 <li><code class="docutils literal"><span class="pre">np.dot(A,</span> <span class="pre">b)</span></code> similar to <code class="docutils literal"><span class="pre">np.matmul</span></code> but has difference broadcasting behaviours.</li>
-<li>Note <code class="docutils literal"><span class="pre">A</span> <span class="pre">*</span> <span class="pre">B</span></code> is the elementwise multiplication</li>
 </ul>
+<p>Note <code class="docutils literal"><span class="pre">A</span> <span class="pre">*</span> <span class="pre">B</span></code> is the elementwise multiplication</p>
 </div>
 <div class="section" id="basic-broadcasting">
 <span id="basic-broadcasting"></span><h2>Basic broadcasting<a class="headerlink" href="#basic-broadcasting" title="Permalink to this headline">¶</a></h2>
@@ -585,8 +562,9 @@ prepended with a dimension of length 1 to satisfy property 2.</li>
 <p><sup><sub>https://github.com/gertingold/euroscipy-numpy-tutorial/</sub></sup></p>
 <p><img alt="broadcast.svg" src="../_images/broadcast.svg" />
 <sup><sub>https://github.com/gertingold/euroscipy-numpy-tutorial/tree/master/images</sub></sup></p>
+</div>
 <div class="section" id="getitem-insert-singleton-dimension">
-<span id="getitem-insert-singleton-dimension"></span><h3>Getitem: Insert singleton dimension<a class="headerlink" href="#getitem-insert-singleton-dimension" title="Permalink to this headline">¶</a></h3>
+<span id="getitem-insert-singleton-dimension"></span><h2>Getitem: Insert singleton dimension<a class="headerlink" href="#getitem-insert-singleton-dimension" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">11</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="bp">None</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">shape</span>
@@ -600,11 +578,10 @@ prepended with a dimension of length 1 to satisfy property 2.</li>
 </div>
 </div>
 <div class="section" id="einsum">
-<span id="einsum"></span><h3>Einsum<a class="headerlink" href="#einsum" title="Permalink to this headline">¶</a></h3>
+<span id="einsum"></span><h2>Einsum<a class="headerlink" href="#einsum" title="Permalink to this headline">¶</a></h2>
 <p>https://en.wikipedia.org/wiki/Einstein_notation</p>
 <p><img alt="numpy_einsum.png" src="../_images/numpy_einsum.png" />
 <sup><sub>https://obilaniu6266h16.wordpress.com/2016/02/04/einstein-summation-in-numpy/</sub></sup></p>
-</div>
 </div>
 <div class="section" id="further-information">
 <span id="further-information"></span><h2>Further information<a class="headerlink" href="#further-information" title="Permalink to this headline">¶</a></h2>
