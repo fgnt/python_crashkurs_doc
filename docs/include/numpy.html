@@ -107,6 +107,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#basic-operations">Basic operations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#basic-broadcasting">Basic broadcasting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#getitem-insert-singleton-dimension">Getitem: Insert singleton dimension</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#einsum">Einsum</a></li>
 </ul>
 </li>
@@ -214,7 +215,7 @@
 <li>Support for linear algebra</li>
 </ul>
 </li>
-<li>Fast/easy programming</li>
+<li>Fast and easy to program</li>
 <li>Fast execution</li>
 </ul>
 </div>
@@ -236,6 +237,7 @@
 </ul>
 <p><img alt="numpy_array_t.png" src="../_images/numpy_array_t.png" />
 <sup><sub> https://www.oreilly.com/library/view/elegant-scipy/9781491922927/ch01.html</sub></sup></p>
+<p>Example: Import numpy and create a 3-dimensional array with the shape <code class="docutils literal"><span class="pre">[4,</span> <span class="pre">3,</span> <span class="pre">2]</span></code></p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 </pre></div>
@@ -308,7 +310,7 @@ Use a python <code class="docutils literal"><span class="pre">list</span></code>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">shape</span>  <span class="c1"># the shape of the array</span>
 <span class="go">(4, 3, 2)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">ndim</span>  <span class="c1"># the number of dimensions of the array</span>
-<span class="go">(4, 3, 2)</span>
+<span class="go">3</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">dtype</span>  <span class="c1"># the dtype of the array</span>
 <span class="go">np.float64</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">size</span>  <span class="c1"># the number of elements</span>
@@ -331,11 +333,14 @@ Inplace operations change then the original array.</p>
 <p>A transpose in numpy means array transpose and not matrix transpose</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">shape</span>
 <span class="go">(4, 3, 2)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">T</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">T</span>  <span class="c1"># array transpose</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">.</span><span class="n">shape</span>
 <span class="go">(2, 3, 4)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
 <span class="go">(4, 2, 3)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">swapaxes</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>  <span class="c1"># matrix transpose</span>
+<span class="go">(4, 2, 3)</span>
+
 </pre></div>
 </div>
 </div>
@@ -364,31 +369,44 @@ A value for start <code class="docutils literal"><span class="pre">[:stop]</span
 <p>Some 1d code examples:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
-<span class="go">[0, 1, 2, 3, 4]</span>
+<span class="go">array([0, 1, 2, 3, 4])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># Index with a scalar</span>
+<span class="go">0</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[:]</span>  <span class="c1"># slice with a column, here all values</span>
-<span class="go">[0, 1, 2, 3, 4]</span>
+<span class="go">array([0, 1, 2, 3, 4])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>  <span class="c1"># values from index 1 to the end</span>
-<span class="go">[1, 2, 3, 4]</span>
+<span class="go">array([1, 2, 3, 4])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># values from begin to the last, but exclude the last. Note negative indices are allowed</span>
-<span class="go">[1, 2, 3, 4]</span>
+<span class="go">array([0, 1, 2, 3])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[::</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># Take each second value</span>
-<span class="go">[0, 2, 4]</span>
+<span class="go">array([0, 2, 4])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">step</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">:</span><span class="n">step</span><span class="p">]</span>  <span class="c1"># Use all of them (start, stop, step)</span>
-<span class="go">[1, 3]</span>
+<span class="go">array([1, 3])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="o">...</span><span class="p">]</span>  <span class="c1"># The &quot;ellipsis&quot; in getitem, see for eplanation below</span>
-<span class="go">[0, 1, 2, 3, 4]</span>
+<span class="go">array([0, 1, 2, 3, 4])</span>
 </pre></div>
 </div>
 <p>Ellipsis: The ellipsis (<code class="docutils literal"><span class="pre">...</span></code>) is a special argument to getitem (<code class="docutils literal"><span class="pre">[</span> <span class="pre">]</span></code>). It is used to handle an unknown number of dimensions. It means fill the getitem with so many colons (<code class="docutils literal"><span class="pre">:</span></code>) that on all dimensions an slicing/indexing is used.</p>
 <p>Higher dimensional slicing with ellipsis:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># equal to a[:, :, 0]</span>
+<span class="go">array([[ 0,  2,  4],</span>
+<span class="go">       [ 6,  8, 10],</span>
+<span class="go">       [12, 14, 16],</span>
+<span class="go">       [18, 20, 22]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># equal to a[0, :, 1]</span>
+<span class="go">array([1, 3, 5])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">array([[ 0,  1,  2],</span>
+<span class="go">       [ 3,  4,  5],</span>
+<span class="go">       [ 6,  7,  8],</span>
+<span class="go">       [ 9, 10, 11]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># equal to a[:, 0]</span>
+<span class="go">array([0, 3, 6, 9])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># equal to a[0, 1]</span>
+<span class="go">array(1)</span>
 </pre></div>
 </div>
 <p>and a visualisation
@@ -408,19 +426,44 @@ These functions will also work where <code class="docutils literal"><span class=
 i.e. <code class="docutils literal"><span class="pre">np.max(a)</span></code> is equal to <code class="docutils literal"><span class="pre">np.max(np.array(a))</span></code>.</p>
 <p>By default most numpy reduction functions perform the operation on the full array.
 For example <code class="docutils literal"><span class="pre">np.sum(a)</span></code> returns the sum of all elements of a, independent of the numer of dimensions of a. To perform a operation on a specific dimension these functions have an <code class="docutils literal"><span class="pre">axis</span></code> argument:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="go">?</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">array([[[ 0,  1],</span>
+<span class="go">        [ 2,  3],</span>
+<span class="go">        [ 4,  5]],</span>
+
+<span class="go">       [[ 6,  7],</span>
+<span class="go">        [ 8,  9],</span>
+<span class="go">        [10, 11]],</span>
+
+<span class="go">       [[12, 13],</span>
+<span class="go">        [14, 15],</span>
+<span class="go">        [16, 17]],</span>
+
+<span class="go">       [[18, 19],</span>
+<span class="go">        [20, 21],</span>
+<span class="go">        [22, 23]]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">276</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-<span class="go">?</span>
+<span class="go">array([[ 1,  5,  9],</span>
+<span class="go">       [13, 17, 21],</span>
+<span class="go">       [25, 29, 33],</span>
+<span class="go">       [37, 41, 45]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
-<span class="go">?</span>
+<span class="go">array([ 15,  51,  87, 123])</span>
 </pre></div>
 </div>
 <p>Some example operations:</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">**</span><span class="mi">2</span>  <span class="c1"># square, in python ** is the pow operator</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">**</span> <span class="mi">2</span>  <span class="c1"># square, in python ** is the pow operator</span>
+<span class="go">array([ 0,  1,  4,  9, 16])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">+</span> <span class="n">a</span>
+<span class="go">array([0, 2, 4, 6, 8])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="go">array([2, 3, 4, 5, 6])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="go">array([0.        , 1.        , 1.41421356, 1.73205081, 2.        ])</span>
 </pre></div>
 </div>
 <p>and there are many more functions, for example (all of them are in the numpy namespace <code class="docutils literal"><span class="pre">np</span></code>):</p>
@@ -542,11 +585,20 @@ prepended with a dimension of length 1 to satisfy property 2.</li>
 <p><sup><sub>https://github.com/gertingold/euroscipy-numpy-tutorial/</sub></sup></p>
 <p><img alt="broadcast.svg" src="../_images/broadcast.svg" />
 <sup><sub>https://github.com/gertingold/euroscipy-numpy-tutorial/tree/master/images</sub></sup></p>
-<p>Exmaples shapes and there output shapes:</p>
-<ul class="simple">
-<li>(4, 3, 2), (1, 1, 1) -&gt; (4, 3, 2)  # Singletons match with any number</li>
-<li>(4, 3, 2), (2,) -&gt; (4, 3, 2)  # Missing ndims are filled from the left with ones (not right as in MATLAB)</li>
-</ul>
+<div class="section" id="getitem-insert-singleton-dimension">
+<span id="getitem-insert-singleton-dimension"></span><h3>Getitem: Insert singleton dimension<a class="headerlink" href="#getitem-insert-singleton-dimension" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">11</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="bp">None</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">(1, 3)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">(2, 1)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="bp">None</span><span class="p">,</span> <span class="p">:]</span> <span class="o">+</span> <span class="n">b</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+<span class="go">array([[ 6,  7,  8],</span>
+<span class="go">       [12, 13, 14]])</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="einsum">
 <span id="einsum"></span><h3>Einsum<a class="headerlink" href="#einsum" title="Permalink to this headline">¶</a></h3>
 <p>https://en.wikipedia.org/wiki/Einstein_notation</p>
