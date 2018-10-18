@@ -101,8 +101,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#transpose">Transpose</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#reshape">Reshape</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#getitem-slicing-and-indexing">Getitem: Slicing and indexing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#basic-operations">Basic operations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#basic-broadcasting">Basic broadcasting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#function">Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#broadcasting">Broadcasting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#getitem-insert-singleton-dimension">Getitem: Insert singleton dimension</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#einsum">Einsum</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#further-information">Further information</a></li>
@@ -395,8 +395,8 @@ A value for start <code class="docutils literal"><span class="pre">[:stop]</span
 <img alt="arraygraphics_7.svg" src="../_images/arraygraphics_7.svg" />
 <sup><sub>https://github.com/gertingold/euroscipy-numpy-tutorial/tree/master/images</sub></sup></p>
 </div>
-<div class="section" id="basic-operations">
-<span id="basic-operations"></span><h2>Basic operations<a class="headerlink" href="#basic-operations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="function">
+<span id="function"></span><h2>Function<a class="headerlink" href="#function" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal"><span class="pre">np.ndarray</span></code> in numpy has many methods to manipulate itself (<code class="docutils literal"><span class="pre">a.max()</span></code>, <code class="docutils literal"><span class="pre">a.sum()</span></code>, <code class="docutils literal"><span class="pre">a.reshape()</span></code>, ...).
 These have always a counterpart in the numpy namespace (<code class="docutils literal"><span class="pre">np.max(a)</span></code>, <code class="docutils literal"><span class="pre">np.sum(a)</span></code>, <code class="docutils literal"><span class="pre">np.reshape(a)</span></code>, ...).
 These functions will also work where <code class="docutils literal"><span class="pre">a</span></code> is compatible with numpy,
@@ -545,8 +545,8 @@ For the matrix multiplication there are 3 ways to execute it:</p>
 </ul>
 <p>Note <code class="docutils literal"><span class="pre">A</span> <span class="pre">*</span> <span class="pre">B</span></code> is the elementwise multiplication</p>
 </div>
-<div class="section" id="basic-broadcasting">
-<span id="basic-broadcasting"></span><h2>Basic broadcasting<a class="headerlink" href="#basic-broadcasting" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="broadcasting">
+<span id="broadcasting"></span><h2>Broadcasting<a class="headerlink" href="#broadcasting" title="Permalink to this headline">¶</a></h2>
 <p>By default the python operators (<code class="docutils literal"><span class="pre">+</span></code>, <code class="docutils literal"><span class="pre">-</span></code>, <code class="docutils literal"><span class="pre">*</span></code>, <code class="docutils literal"><span class="pre">/</span></code>, <code class="docutils literal"><span class="pre">**</span></code>) operate elementwise (except matrix multiplication <code class="docutils literal"><span class="pre">&#64;</span></code>)
 To work elementwise it is important that the shapes match.
 At this position broadcasting is important.
