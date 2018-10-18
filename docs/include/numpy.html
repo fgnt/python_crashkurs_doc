@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Numpy &mdash; Python Tutorial  documentation</title>
+  <title>Numpy/SciPy &mdash; Python Tutorial  documentation</title>
   
 
   
@@ -92,8 +92,12 @@
 <li class="toctree-l1"><a class="reference internal" href="install_linux.html">Installation for Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install_windows.html">Installation for Windows</a></li>
 <li class="toctree-l1"><a class="reference internal" href="packages.html">Installing and updating packages</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Numpy</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Numpy/SciPy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-we-want">What we want</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-numpy">What is Numpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#datatypes-dtype">Datatypes (dtype)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#numpy-vs-python-list">Numpy vs python list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#array-creation">Array creation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#numpy-array-properties">Numpy array properties</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#numpy-array-manipulations">Numpy array manipulations</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#transpose">Transpose</a></li>
@@ -102,8 +106,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#basic-operations">Basic operations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#basic-broadcasting">Basic broadcasting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#some-usefull-function">Some usefull function</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#basic-broadcasting">Basic broadcasting</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#einsum">Einsum</a></li>
 </ul>
 </li>
@@ -156,7 +159,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Numpy</li>
+      <li>Numpy/SciPy</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -175,10 +178,48 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="numpy">
-<span id="numpy"></span><h1>Numpy<a class="headerlink" href="#numpy" title="Permalink to this headline">¶</a></h1>
-<p>Inspired from https://www.youtube.com/watch?v=8JfDAm9y_7s</p>
-<p>What is Numpy:</p>
+  <div class="section" id="numpy-scipy">
+<span id="numpy-scipy"></span><h1>Numpy/SciPy<a class="headerlink" href="#numpy-scipy" title="Permalink to this headline">¶</a></h1>
+<p><sup><sub>The stuff below is inspired from https://www.youtube.com/watch?v=8JfDAm9y_7s and https://github.com/gertingold/euroscipy-numpy-tutorial</sub></sup></p>
+<table>
+<tr>
+    <td><img src="../_static/numpylogo_med.png" alt="numpylogo_med.png" width="50" height="50"></td>
+    <td>
+      <b>NumPy</b><br>
+      Base N-dimensional array package
+    </td>
+    <td><img src="../_static/matplotlib_med.png" alt="matplotlib_med.png" width="50" height="50"></td>
+    <td>
+      <b>Matplotlib</b><br>
+      Comprehensive 2D Plotting
+    </td>
+</tr>
+<tr>
+    <td><img src="../_static/scipy_med.png" alt="scipy_med.png" width="50" height="50"></td>
+    <td>
+      <b>SciPy library</b><br>
+      Fundamental library for scientific computing
+    </td>
+    <td><img src="../_static/pandas_badge2.jpg" alt="pandas_badge2.jpg" width="50" height="50"></td>
+    <td>
+      <b>Pandas</b><br>
+      Data structures & analysis
+    </td>
+</tr>
+</table>
+<sup><sub>https://www.scipy.org/</sub></sup><div class="section" id="what-we-want">
+<span id="what-we-want"></span><h2>What we want<a class="headerlink" href="#what-we-want" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Work with vectors and matrices<ul>
+<li>Support for linear algebra</li>
+</ul>
+</li>
+<li>Fast/easy programming</li>
+<li>Fast execution</li>
+</ul>
+</div>
+<div class="section" id="what-is-numpy">
+<span id="what-is-numpy"></span><h2>What is Numpy<a class="headerlink" href="#what-is-numpy" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Core library for scientific computing in Python<ul>
 <li>It is nearly impossible to find a scientific package in Python that does not depend on numpy</li>
@@ -188,12 +229,44 @@
 <li>Linear algebra, DFT, random numbers, ...</li>
 </ul>
 </li>
+<li>Has good documentation<ul>
+<li><a class="reference external" href="https://docs.scipy.org/doc/numpy/">https://docs.scipy.org/doc/numpy/</a></li>
 </ul>
-<p><img alt="numpy_array.png" src="../_images/numpy_array.png" />
-https://www.oreilly.com/library/view/elegant-scipy/9781491922927/ch01.html</p>
+</li>
+</ul>
+<p><img alt="numpy_array_t.png" src="../_images/numpy_array_t.png" />
+<sup><sub> https://www.oreilly.com/library/view/elegant-scipy/9781491922927/ch01.html</sub></sup></p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 </pre></div>
+</div>
+</div>
+<div class="section" id="datatypes-dtype">
+<span id="datatypes-dtype"></span><h2>Datatypes (dtype)<a class="headerlink" href="#datatypes-dtype" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Integers: <code class="docutils literal"><span class="pre">np.int8</span></code>, <code class="docutils literal"><span class="pre">np.int16</span></code>, <code class="docutils literal"><span class="pre">np.int32</span></code>, <code class="docutils literal"><span class="pre">np.int64</span></code>, <code class="docutils literal"><span class="pre">np.uint8</span></code>, ...</li>
+<li>Float: <code class="docutils literal"><span class="pre">np.float16</span></code>, <code class="docutils literal"><span class="pre">np.float32</span></code>, <code class="docutils literal"><span class="pre">np.float64</span></code>, . . .</li>
+<li>Complex: <code class="docutils literal"><span class="pre">np.complex64</span></code> (single precision), <code class="docutils literal"><span class="pre">np.complex128</span></code> (double precision), . . .</li>
+<li>Boolean: <code class="docutils literal"><span class="pre">np.bool8</span></code></li>
+<li>default type: <code class="docutils literal"><span class="pre">np.float64</span></code></li>
+</ul>
+<p>Python has buildin support for complex types:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">+</span> <span class="mi">1j</span>
+<span class="go">(1+1j)</span>
+</pre></div>
+</div>
+<p>Note: Numpy is not save against overflows (while python is):</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">array</span><span class="p">([</span><span class="mi">200</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">uint8</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">array([200], dtype=uint8)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">+</span> <span class="n">a</span>  <span class="c1"># overflow</span>
+<span class="go">array([144], dtype=uint8)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">+</span> <span class="mi">200</span>  <span class="c1"># overflow</span>
+<span class="go">array([144], dtype=uint8)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">+</span> <span class="mi">300</span>  <span class="c1"># no overflow, because 300 is first converted to uint16</span>
+<span class="go">array([500], dtype=uint16)</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="numpy-vs-python-list">
 <span id="numpy-vs-python-list"></span><h2>Numpy vs python list<a class="headerlink" href="#numpy-vs-python-list" title="Permalink to this headline">¶</a></h2>
@@ -207,15 +280,28 @@ https://www.oreilly.com/library/view/elegant-scipy/9781491922927/ch01.html</p>
 </ul>
 </li>
 <li>Faster<ul>
-<li>Numpy functions (np.sum, np.linalg.inv, np.fft.fft) are implemented in C/C++ (Blas, LAPACK, MKL, ...)</li>
+<li>Numpy functions (<code class="docutils literal"><span class="pre">np.sum</span></code>, <code class="docutils literal"><span class="pre">np.linalg.inv</span></code>, <code class="docutils literal"><span class="pre">np.fft.fft</span></code>) are implemented in C/C++ (Blas, LAPACK, MKL, ...)</li>
 <li>Python list has always the interpreter overhead</li>
 </ul>
 </li>
 <li>Easier to use for numerix problems<ul>
-<li>Numpy supports matrix operations (np.matmul, np.einsum)</li>
+<li>Numpy supports matrix operations (<code class="docutils literal"><span class="pre">np.matmul</span></code>, <code class="docutils literal"><span class="pre">np.einsum</span></code>)</li>
 </ul>
 </li>
 </ul>
+</div>
+<div class="section" id="array-creation">
+<span id="array-creation"></span><h2>Array creation<a class="headerlink" href="#array-creation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Numerical ranges: <code class="docutils literal"><span class="pre">np.arange</span></code>, <code class="docutils literal"><span class="pre">np.linspace</span></code>, <code class="docutils literal"><span class="pre">np.logspace</span></code></li>
+<li>Homogeneous data: <code class="docutils literal"><span class="pre">np.zeros</span></code>, <code class="docutils literal"><span class="pre">np.ones</span></code></li>
+<li>Diagonal elements: <code class="docutils literal"><span class="pre">np.diag</span></code>, <code class="docutils literal"><span class="pre">np.eye</span></code></li>
+<li>Random numbers: <code class="docutils literal"><span class="pre">np.random.rand</span></code>, <code class="docutils literal"><span class="pre">np.random.randint</span></code></li>
+<li>From <code class="docutils literal"><span class="pre">list</span></code>: <code class="docutils literal"><span class="pre">np.array</span></code></li>
+</ul>
+<p>Numpy has an <code class="docutils literal"><span class="pre">append()</span></code>-method like python <code class="docutils literal"><span class="pre">list</span></code>s.
+Avoid it.
+Use a python <code class="docutils literal"><span class="pre">list</span></code> with append and convert it with <code class="docutils literal"><span class="pre">np.array</span></code></p>
 </div>
 <div class="section" id="numpy-array-properties">
 <span id="numpy-array-properties"></span><h2>Numpy array properties<a class="headerlink" href="#numpy-array-properties" title="Permalink to this headline">¶</a></h2>
@@ -229,18 +315,26 @@ https://www.oreilly.com/library/view/elegant-scipy/9781491922927/ch01.html</p>
 <span class="go">24</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>  <span class="c1"># Note: len returns the length of the fist dimension to be compatible with python lists</span>
 <span class="go">4</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">strides</span>  <span class="c1"># Memory step that corresponds to an index increase</span>
+<span class="go">(48, 16, 8)</span>
 </pre></div>
 </div>
+<p>Strides are one reason for the efficiency of numpy.
+Usually the user do not care about the strides.
+The thing to remember from strides is, that some operations (e.g. <code class="docutils literal"><span class="pre">np.transpose</span></code>, slice) return a view to the original array with modified strides.
+Inplace operations change then the original array.</p>
 </div>
 <div class="section" id="numpy-array-manipulations">
 <span id="numpy-array-manipulations"></span><h2>Numpy array manipulations<a class="headerlink" href="#numpy-array-manipulations" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="transpose">
 <span id="transpose"></span><h3>Transpose<a class="headerlink" href="#transpose" title="Permalink to this headline">¶</a></h3>
 <p>A transpose in numpy means array transpose and not matrix transpose</p>
-<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">T</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">(4, 3, 2)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">T</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="o">.</span><span class="n">shape</span>
 <span class="go">(2, 3, 4)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
 <span class="go">(4, 2, 3)</span>
 </pre></div>
 </div>
@@ -251,14 +345,23 @@ https://www.oreilly.com/library/view/elegant-scipy/9781491922927/ch01.html</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>  <span class="c1"># same as np.reshape(a, [2, 8])</span>
 </pre></div>
 </div>
-<p><img alt="numpy-reshape-examples.jpg" src="../_images/numpy-reshape-examples.jpg" />
-http://backtobazics.com/wp-content/uploads/2018/08/numpy-reshape-examples.jpg</p>
+<p><img alt="numpy-reshape-examples_t.png" src="../_images/numpy-reshape-examples_t.png" />
+<sup><sub>http://backtobazics.com/wp-content/uploads/2018/08/numpy-reshape-examples.jpg</sub></sup></p>
 </div>
 <div class="section" id="getitem-slicing-and-indexing">
 <span id="getitem-slicing-and-indexing"></span><h3>Getitem: Slicing and indexing<a class="headerlink" href="#getitem-slicing-and-indexing" title="Permalink to this headline">¶</a></h3>
-<p>Note: In python the index starts with 0 like in C/C++ and not with 1 as in MATLAB</p>
-<p><img alt="numpy-slice.jpg" src="../_images/numpy-slice.jpg" />
-https://image.slidesharecdn.com/numpytalksiam-110305000848-phpapp01/95/numpy-talk-at-siam-14-728.jpg?cb=1299283822</p>
+<p>In python the index starts with 0 like in C/C++ and not with 1 as in MATLAB. The syntax is: <code class="docutils literal"><span class="pre">[start:stop:step]</span></code>.
+Step is the last one and optional <code class="docutils literal"><span class="pre">[start:stop]</span></code>. Negative values are supported (e.g <code class="docutils literal"><span class="pre">[::-1]</span></code> reverses the order).
+A value for start <code class="docutils literal"><span class="pre">[:stop]</span></code> and stop <code class="docutils literal"><span class="pre">[start:]</span></code> is also optional. Examples (1d):</p>
+<p><img alt="listindexing1.svg" src="../_images/listindexing1.svg" />
+<br> <sup><sub>https://github.com/gertingold/euroscipy-numpy-tutorial/tree/master/images</sub></sup></p>
+<ul class="simple">
+<li>Note: The last value is not included in slicing (e.g. <code class="docutils literal"><span class="pre">[:-1]</span></code> mean drop the last element)</li>
+</ul>
+<p>Negative indices for start and stop are also supported:</p>
+<p><img alt="listindexing2.svg" src="../_images/listindexing2.svg" />
+<br> <sup><sub>https://github.com/gertingold/euroscipy-numpy-tutorial/tree/master/images</sub></sup></p>
+<p>Some 1d code examples:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
 <span class="go">[0, 1, 2, 3, 4]</span>
@@ -275,10 +378,11 @@ https://image.slidesharecdn.com/numpytalksiam-110305000848-phpapp01/95/numpy-tal
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">:</span><span class="n">step</span><span class="p">]</span>  <span class="c1"># Use all of them (start, stop, step)</span>
 <span class="go">[1, 3]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="o">...</span><span class="p">]</span>  <span class="c1"># The &quot;ellipsis&quot; in getitem, see for eplanation below</span>
+<span class="go">[0, 1, 2, 3, 4]</span>
 </pre></div>
 </div>
-<p>Ellipsis: The ellipsis (<code class="docutils literal"><span class="pre">...</span></code>) is a special argument to getitem. It is used to handle an unkown number of dimension. It means fill the getitem with so many colons (<code class="docutils literal"><span class="pre">:</span></code>) that on all dimensions an slicing/indexing is used.</p>
-<p>Example:</p>
+<p>Ellipsis: The ellipsis (<code class="docutils literal"><span class="pre">...</span></code>) is a special argument to getitem (<code class="docutils literal"><span class="pre">[</span> <span class="pre">]</span></code>). It is used to handle an unknown number of dimensions. It means fill the getitem with so many colons (<code class="docutils literal"><span class="pre">:</span></code>) that on all dimensions an slicing/indexing is used.</p>
+<p>Higher dimensional slicing with ellipsis:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># equal to a[:, :, 0]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># equal to a[0, :, 1]</span>
@@ -287,11 +391,21 @@ https://image.slidesharecdn.com/numpytalksiam-110305000848-phpapp01/95/numpy-tal
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># equal to a[0, 1]</span>
 </pre></div>
 </div>
+<p>and a visualisation
+<img alt="numpy-slice_t.png" src="../_images/numpy-slice_t.png" />
+<sup><sub>https://image.slidesharecdn.com/numpytalksiam-110305000848-phpapp01/95/numpy-talk-at-siam-14-728.jpg?cb=1299283822</sub></sup></p>
+<p>Two advanced indexing examples. One with a boolean mask and the other one with an array of integers:</p>
+<p><img alt="arraygraphics_6.svg" src="../_images/arraygraphics_6.svg" />
+<img alt="arraygraphics_7.svg" src="../_images/arraygraphics_7.svg" />
+<sup><sub>https://github.com/gertingold/euroscipy-numpy-tutorial/tree/master/images</sub></sup></p>
 </div>
 </div>
 <div class="section" id="basic-operations">
 <span id="basic-operations"></span><h2>Basic operations<a class="headerlink" href="#basic-operations" title="Permalink to this headline">¶</a></h2>
-<p>The <code class="docutils literal"><span class="pre">array</span></code> in numpy has many methods to manipulate them (<code class="docutils literal"><span class="pre">a.max()</span></code>, <code class="docutils literal"><span class="pre">a.sum()</span></code>, <code class="docutils literal"><span class="pre">a.reshape()</span></code>, ...). These have always a counterpart in the numpy namespace (<code class="docutils literal"><span class="pre">np.max(a)</span></code>, <code class="docutils literal"><span class="pre">np.sum(a)</span></code>, <code class="docutils literal"><span class="pre">np.reshape(a)</span></code>, ...).</p>
+<p>The <code class="docutils literal"><span class="pre">np.ndarray</span></code> in numpy has many methods to manipulate them (<code class="docutils literal"><span class="pre">a.max()</span></code>, <code class="docutils literal"><span class="pre">a.sum()</span></code>, <code class="docutils literal"><span class="pre">a.reshape()</span></code>, ...).
+These have always a counterpart in the numpy namespace (<code class="docutils literal"><span class="pre">np.max(a)</span></code>, <code class="docutils literal"><span class="pre">np.sum(a)</span></code>, <code class="docutils literal"><span class="pre">np.reshape(a)</span></code>, ...).
+These functions will also work where <code class="docutils literal"><span class="pre">a</span></code> is compatible with numpy,
+i.e. <code class="docutils literal"><span class="pre">np.max(a)</span></code> is equal to <code class="docutils literal"><span class="pre">np.max(np.array(a))</span></code>.</p>
 <p>By default most numpy reduction functions perform the operation on the full array.
 For example <code class="docutils literal"><span class="pre">np.sum(a)</span></code> returns the sum of all elements of a, independent of the numer of dimensions of a. To perform a operation on a specific dimension these functions have an <code class="docutils literal"><span class="pre">axis</span></code> argument:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
@@ -302,13 +416,114 @@ For example <code class="docutils literal"><span class="pre">np.sum(a)</span></c
 <span class="go">?</span>
 </pre></div>
 </div>
-<p>Elementwise operations:</p>
+<p>Some example operations:</p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="o">**</span><span class="mi">2</span>  <span class="c1"># square, in python ** is the pow operator</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">+</span> <span class="n">a</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">+</span> <span class="mi">2</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>and there are many more functions, for example (all of them are in the numpy namespace <code class="docutils literal"><span class="pre">np</span></code>):</p>
+<ul class="simple">
+<li>Trigonometric functions<ul>
+<li><code class="docutils literal"><span class="pre">sin</span></code>, <code class="docutils literal"><span class="pre">cos</span></code>, <code class="docutils literal"><span class="pre">tan</span></code>, <code class="docutils literal"><span class="pre">arcsin</span></code>, <code class="docutils literal"><span class="pre">arccos</span></code>, <code class="docutils literal"><span class="pre">arctan</span></code>, <code class="docutils literal"><span class="pre">hypot</span></code>, <code class="docutils literal"><span class="pre">arctan2</span></code>, <code class="docutils literal"><span class="pre">degrees</span></code>, <code class="docutils literal"><span class="pre">radians</span></code>, <code class="docutils literal"><span class="pre">unwrap</span></code>, <code class="docutils literal"><span class="pre">deg2rad</span></code>, <code class="docutils literal"><span class="pre">rad2deg</span></code></li>
+</ul>
+</li>
+<li>Other special functions<ul>
+<li><code class="docutils literal"><span class="pre">i0</span></code>, <code class="docutils literal"><span class="pre">sinc</span></code></li>
+</ul>
+</li>
+<li>Hyperbolic functions<ul>
+<li><code class="docutils literal"><span class="pre">sinh</span></code>, <code class="docutils literal"><span class="pre">cosh</span></code>, <code class="docutils literal"><span class="pre">tanh</span></code>, <code class="docutils literal"><span class="pre">arcsinh</span></code>, <code class="docutils literal"><span class="pre">arccosh</span></code>, <code class="docutils literal"><span class="pre">arctanh</span></code></li>
+</ul>
+</li>
+<li>Rounding<ul>
+<li><code class="docutils literal"><span class="pre">around</span></code>, <code class="docutils literal"><span class="pre">round_</span></code>, <code class="docutils literal"><span class="pre">rint</span></code>, <code class="docutils literal"><span class="pre">fix</span></code>, <code class="docutils literal"><span class="pre">floor</span></code>, <code class="docutils literal"><span class="pre">ceil</span></code>, <code class="docutils literal"><span class="pre">trunc</span></code></li>
+</ul>
+</li>
+<li>Floating point routines<ul>
+<li><code class="docutils literal"><span class="pre">signbit</span></code>, <code class="docutils literal"><span class="pre">copysign</span></code>, <code class="docutils literal"><span class="pre">frexp</span></code>, <code class="docutils literal"><span class="pre">ldexp</span></code></li>
+</ul>
+</li>
+<li>Arithmetic operations<ul>
+<li><code class="docutils literal"><span class="pre">add</span></code>, <code class="docutils literal"><span class="pre">reciprocal</span></code>, <code class="docutils literal"><span class="pre">negative</span></code>, <code class="docutils literal"><span class="pre">multiply</span></code>, <code class="docutils literal"><span class="pre">divide</span></code>, <code class="docutils literal"><span class="pre">power</span></code>, <code class="docutils literal"><span class="pre">subtract</span></code>, <code class="docutils literal"><span class="pre">true_divide</span></code>, <code class="docutils literal"><span class="pre">floor_divide</span></code>, <code class="docutils literal"><span class="pre">fmod</span></code>, <code class="docutils literal"><span class="pre">mod</span></code>, <code class="docutils literal"><span class="pre">modf</span></code>, <code class="docutils literal"><span class="pre">remainder</span></code></li>
+</ul>
+</li>
+<li>Sums, products, differences<ul>
+<li><code class="docutils literal"><span class="pre">prod</span></code>, <code class="docutils literal"><span class="pre">sum</span></code>, <code class="docutils literal"><span class="pre">nansum</span></code>, <code class="docutils literal"><span class="pre">cumprod</span></code>, <code class="docutils literal"><span class="pre">cumsum</span></code>, <code class="docutils literal"><span class="pre">diff</span></code>, <code class="docutils literal"><span class="pre">ediff1d</span></code>, <code class="docutils literal"><span class="pre">gradient</span></code>, <code class="docutils literal"><span class="pre">cross</span></code>, <code class="docutils literal"><span class="pre">trapz</span></code></li>
+</ul>
+</li>
+<li>Handling complex numbers<ul>
+<li><code class="docutils literal"><span class="pre">angle</span></code>, <code class="docutils literal"><span class="pre">real</span></code>, <code class="docutils literal"><span class="pre">imag</span></code>, <code class="docutils literal"><span class="pre">conj</span></code></li>
+</ul>
+</li>
+<li>Exponents and logarithms<ul>
+<li><code class="docutils literal"><span class="pre">exp</span></code>, <code class="docutils literal"><span class="pre">expm1</span></code>, <code class="docutils literal"><span class="pre">exp2</span></code>, <code class="docutils literal"><span class="pre">log</span></code>, <code class="docutils literal"><span class="pre">log10</span></code>, <code class="docutils literal"><span class="pre">log2</span></code>, <code class="docutils literal"><span class="pre">log1p</span></code>, <code class="docutils literal"><span class="pre">logaddexp</span></code>, <code class="docutils literal"><span class="pre">logaddexp2</span></code></li>
+</ul>
+</li>
+<li>Miscellaneous<ul>
+<li><code class="docutils literal"><span class="pre">convolve</span></code>, <code class="docutils literal"><span class="pre">clip</span></code>, <code class="docutils literal"><span class="pre">sqrt</span></code>, <code class="docutils literal"><span class="pre">square</span></code>, <code class="docutils literal"><span class="pre">absolute</span></code>, <code class="docutils literal"><span class="pre">fabs</span></code>, <code class="docutils literal"><span class="pre">sign</span></code>, <code class="docutils literal"><span class="pre">maximum</span></code>, <code class="docutils literal"><span class="pre">minimum</span></code>, <code class="docutils literal"><span class="pre">fmax</span></code>, <code class="docutils literal"><span class="pre">fmin</span></code>, <code class="docutils literal"><span class="pre">nan_to_num</span></code>, <code class="docutils literal"><span class="pre">real_if_close</span></code>, <code class="docutils literal"><span class="pre">interp</span></code></li>
+</ul>
+</li>
+<li>Matrix and vector products<ul>
+<li><code class="docutils literal"><span class="pre">dot</span></code>, <code class="docutils literal"><span class="pre">vdot</span></code>, <code class="docutils literal"><span class="pre">inner</span></code>, <code class="docutils literal"><span class="pre">outer</span></code>, <code class="docutils literal"><span class="pre">matmul</span></code>, <code class="docutils literal"><span class="pre">tensordot</span></code>, <code class="docutils literal"><span class="pre">einsum</span></code>, <code class="docutils literal"><span class="pre">linalg.matrix_power</span></code>, <code class="docutils literal"><span class="pre">kron</span></code></li>
+</ul>
+</li>
+<li>Decompositions<ul>
+<li><code class="docutils literal"><span class="pre">linalg.cholesky</span></code>, <code class="docutils literal"><span class="pre">linalg.qr</span></code>, <code class="docutils literal"><span class="pre">linalg.svd</span></code></li>
+</ul>
+</li>
+<li>Matrix eigenvalues<ul>
+<li><code class="docutils literal"><span class="pre">linalg.eig</span></code>, <code class="docutils literal"><span class="pre">linalg.eigh</span></code>, <code class="docutils literal"><span class="pre">linalg.eigvals</span></code>, <code class="docutils literal"><span class="pre">linalg.eigvalsh</span></code></li>
+</ul>
+</li>
+<li>Norms and other numbers<ul>
+<li><code class="docutils literal"><span class="pre">linalg.norm</span></code>, <code class="docutils literal"><span class="pre">linalg.cond</span></code>, <code class="docutils literal"><span class="pre">linalg.det</span></code>, <code class="docutils literal"><span class="pre">linalg.matrix_rank</span></code>, <code class="docutils literal"><span class="pre">linalg.slogdet</span></code>, <code class="docutils literal"><span class="pre">trace</span></code></li>
+</ul>
+</li>
+<li>Solving equations and inverting matrices<ul>
+<li><code class="docutils literal"><span class="pre">linalg.solve</span></code>, <code class="docutils literal"><span class="pre">linalg.tensorsolve</span></code>, <code class="docutils literal"><span class="pre">linalg.lstsq</span></code>, <code class="docutils literal"><span class="pre">linalg.inv</span></code>, <code class="docutils literal"><span class="pre">linalg.pinv</span></code>, <code class="docutils literal"><span class="pre">linalg.tensorinv</span></code></li>
+</ul>
+</li>
+<li>Order statistics<ul>
+<li><code class="docutils literal"><span class="pre">amin</span></code>, <code class="docutils literal"><span class="pre">amax</span></code>, <code class="docutils literal"><span class="pre">nanmin</span></code>, <code class="docutils literal"><span class="pre">nanmax</span></code>, <code class="docutils literal"><span class="pre">ptp</span></code>, <code class="docutils literal"><span class="pre">percentile</span></code>, <code class="docutils literal"><span class="pre">nanpercentile</span></code></li>
+</ul>
+</li>
+<li>Averages and variances<ul>
+<li><code class="docutils literal"><span class="pre">median</span></code>, <code class="docutils literal"><span class="pre">average</span></code>, <code class="docutils literal"><span class="pre">mean</span></code>, <code class="docutils literal"><span class="pre">std</span></code>, <code class="docutils literal"><span class="pre">var</span></code>, <code class="docutils literal"><span class="pre">nanmedian</span></code>, <code class="docutils literal"><span class="pre">nanmean</span></code>, <code class="docutils literal"><span class="pre">nanstd</span></code>, <code class="docutils literal"><span class="pre">nanvar</span></code></li>
+</ul>
+</li>
+<li>Correlating<ul>
+<li><code class="docutils literal"><span class="pre">corrcoef</span></code>, <code class="docutils literal"><span class="pre">correlate</span></code>, <code class="docutils literal"><span class="pre">cov</span></code></li>
+</ul>
+</li>
+<li>Histograms<ul>
+<li><code class="docutils literal"><span class="pre">histogram</span></code>, <code class="docutils literal"><span class="pre">histogram2d</span></code>, <code class="docutils literal"><span class="pre">histogramdd</span></code>, <code class="docutils literal"><span class="pre">bincount</span></code>, <code class="docutils literal"><span class="pre">digitize</span></code></li>
+</ul>
+</li>
+<li>Sorting<ul>
+<li><code class="docutils literal"><span class="pre">sort</span></code>, <code class="docutils literal"><span class="pre">lexsort</span></code>, <code class="docutils literal"><span class="pre">argsort</span></code>, <code class="docutils literal"><span class="pre">msort</span></code>, <code class="docutils literal"><span class="pre">sort_complex</span></code>, <code class="docutils literal"><span class="pre">partition</span></code>, <code class="docutils literal"><span class="pre">argpartition</span></code></li>
+</ul>
+</li>
+<li>Searching<ul>
+<li><code class="docutils literal"><span class="pre">argmax</span></code>, <code class="docutils literal"><span class="pre">nanargmax</span></code>, <code class="docutils literal"><span class="pre">argmin</span></code>, <code class="docutils literal"><span class="pre">nanargmin</span></code>, <code class="docutils literal"><span class="pre">argwhere</span></code>, <code class="docutils literal"><span class="pre">nonzero</span></code>, <code class="docutils literal"><span class="pre">flatnonzero</span></code>, <code class="docutils literal"><span class="pre">where</span></code>, <code class="docutils literal"><span class="pre">searchsorted</span></code>, <code class="docutils literal"><span class="pre">extract</span></code></li>
+</ul>
+</li>
+<li>Counting<ul>
+<li><code class="docutils literal"><span class="pre">count_nonzero</span></code></li>
+</ul>
+</li>
+<li>...</li>
+</ul>
+<p><sup><sub>https://github.com/gertingold/euroscipy-numpy-tutorial/</sub></sup></p>
+<p>One often used operation is the matrix multiplication.
+For the matrix multiplication there are 3 ways to execute it:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">np.matmul(A,</span> <span class="pre">b)</span></code> is the recommented one (or the <code class="docutils literal"><span class="pre">&#64;</span></code> operator)</li>
+<li><code class="docutils literal"><span class="pre">A</span> <span class="pre">&#64;</span> <span class="pre">B</span></code> alternative syntax for <code class="docutils literal"><span class="pre">np.matmul</span></code></li>
+<li><code class="docutils literal"><span class="pre">np.dot(A,</span> <span class="pre">b)</span></code> similar to <code class="docutils literal"><span class="pre">np.matmul</span></code> but has difference broadcasting behaviours.</li>
+<li>Note <code class="docutils literal"><span class="pre">A</span> <span class="pre">*</span> <span class="pre">B</span></code> is the elementwise multiplication</li>
+</ul>
 </div>
 <div class="section" id="basic-broadcasting">
 <span id="basic-broadcasting"></span><h2>Basic broadcasting<a class="headerlink" href="#basic-broadcasting" title="Permalink to this headline">¶</a></h2>
@@ -316,24 +531,27 @@ For example <code class="docutils literal"><span class="pre">np.sum(a)</span></c
 To work elementwise it is important that the shapes match.
 At this position broadcasting is important.
 It mean, when the shapes do not match, numpy try to match them with broadcasting.</p>
+<p><b>Broadcasting rules:</b></p>
+<ol class="simple">
+<li>The arrays all have exactly the same shape.</li>
+<li>The arrays all have the same number of dimensions and the length
+of each dimension is either a common length or 1.</li>
+<li>The arrays that have too few dimensions can have their shapes
+prepended with a dimension of length 1 to satisfy property 2.</li>
+</ol>
+<p><sup><sub>https://github.com/gertingold/euroscipy-numpy-tutorial/</sub></sup></p>
+<p><img alt="broadcast.svg" src="../_images/broadcast.svg" />
+<sup><sub>https://github.com/gertingold/euroscipy-numpy-tutorial/tree/master/images</sub></sup></p>
 <p>Exmaples shapes and there output shapes:</p>
 <ul class="simple">
 <li>(4, 3, 2), (1, 1, 1) -&gt; (4, 3, 2)  # Singletons match with any number</li>
 <li>(4, 3, 2), (2,) -&gt; (4, 3, 2)  # Missing ndims are filled from the left with ones (not right as in MATLAB)</li>
 </ul>
-</div>
-<div class="section" id="some-usefull-function">
-<span id="some-usefull-function"></span><h2>Some usefull function<a class="headerlink" href="#some-usefull-function" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">np.linspace</span></code> vs <code class="docutils literal"><span class="pre">np.arange</span></code></li>
-<li><code class="docutils literal"><span class="pre">np.sin</span></code></li>
-<li><code class="docutils literal"><span class="pre">np.random.randn</span></code>, <code class="docutils literal"><span class="pre">np.random.normal</span></code></li>
-</ul>
 <div class="section" id="einsum">
 <span id="einsum"></span><h3>Einsum<a class="headerlink" href="#einsum" title="Permalink to this headline">¶</a></h3>
 <p>https://en.wikipedia.org/wiki/Einstein_notation</p>
 <p><img alt="numpy_einsum.png" src="../_images/numpy_einsum.png" />
-https://obilaniu6266h16.wordpress.com/2016/02/04/einstein-summation-in-numpy/</p>
+<sup><sub>https://obilaniu6266h16.wordpress.com/2016/02/04/einstein-summation-in-numpy/</sub></sup></p>
 </div>
 </div>
 <div class="section" id="further-information">

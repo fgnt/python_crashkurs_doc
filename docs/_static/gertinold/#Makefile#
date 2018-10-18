@@ -1,0 +1,8 @@
+
+
+listindexing2.svg: listindexing2.pdf
+	pdf2svg listindexing2.pdf listindexing2.svg
+
+listindexing1.svg: listindexing1.pdf
+	pdf2svg listindexing1.pdf listindexing1.svg
+
