@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Installing and updating packages &mdash; Python Tutorial  documentation</title>
+  <title>&lt;no title&gt; &mdash; Python Tutorial  documentation</title>
   
 
   
@@ -36,8 +36,8 @@
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="Python Tutorial  documentation" href="../index.html"/>
-        <link rel="next" title="Numpy/SciPy" href="numpy.html"/>
-        <link rel="prev" title="&lt;no title&gt;" href="poolroom.html"/> 
+        <link rel="next" title="Installing and updating packages" href="packages.html"/>
+        <link rel="prev" title="Installation for Windows" href="install_windows.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -86,17 +86,12 @@
               
             
             
-              <ul class="current">
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="course_outline.html">Course Outline</a></li>
 <li class="toctree-l1"><a class="reference internal" href="matlab_v_python.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install_linux.html">Installation for Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install_windows.html">Installation for Windows</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Installing and updating packages</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#update-anaconda-distribution">Update Anaconda Distribution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#installl-new-packages">Installl new packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#conda-vs-pip">Conda vs pip</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="packages.html">Installing and updating packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="numpy.html">Numpy/SciPy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="editors.html">Editors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="glossary.html">Glossary</a></li>
@@ -144,13 +139,13 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Installing and updating packages</li>
+      <li>&lt;no title&gt;</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/include/packages.md.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/include/poolroom.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -163,52 +158,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="installing-and-updating-packages">
-<span id="installing-and-updating-packages"></span><h1>Installing and updating packages<a class="headerlink" href="#installing-and-updating-packages" title="Permalink to this headline">¶</a></h1>
-<p>Anaconda comes with a lot of scientific packages, however if you need an additional package or want to update one, you can use <code class="docutils literal"><span class="pre">conda</span></code> or <code class="docutils literal"><span class="pre">pip</span></code>.</p>
-<div class="section" id="update-anaconda-distribution">
-<span id="update-anaconda-distribution"></span><h2>Update Anaconda Distribution<a class="headerlink" href="#update-anaconda-distribution" title="Permalink to this headline">¶</a></h2>
-<p>Anaconda publishes updates to its whole distribution every few months. Start <em>Anaconda Prompt</em> and update then by</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">update</span> <span class="n">conda</span>
-<span class="n">conda</span> <span class="n">update</span> <span class="n">anaconda</span>
+  <p>Use in Poolroom</p>
+<p>Open a terminal and execute the following command:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">source</span> /upb/users/l/ldrude/public/share/anaconda3/bin/activate
 </pre></div>
 </div>
-</div>
-<div class="section" id="installl-new-packages">
-<span id="installl-new-packages"></span><h2>Installl new packages<a class="headerlink" href="#installl-new-packages" title="Permalink to this headline">¶</a></h2>
-<p>Many packages are hosted on <a class="reference external" href="https://anaconda.org/">Anaconda Cloud</a>, you can search there for a package and follow the install instructions.</p>
-<p>Typically you can install a new package with the following command inside <em>Anaconda Prompt</em>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">tensorflow</span>
+<p>This will setup anaconda in the current terminal.
+Go to the directory where your excersises are (Use <code class="docutils literal"><span class="pre">cd</span> <span class="pre">folder</span></code> to change the directory and <code class="docutils literal"><span class="pre">ls</span></code> to show the content of the current directory).</p>
+<p>Launch the jupyter server with the following command:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>jupyter notebook
 </pre></div>
-</div>
-<p>or</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">tensorflow</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="conda-vs-pip">
-<span id="conda-vs-pip"></span><h2>Conda vs pip<a class="headerlink" href="#conda-vs-pip" title="Permalink to this headline">¶</a></h2>
-<p>pip:</p>
-<ul class="simple">
-<li>default python installer</li>
-<li>has always up to date packages</li>
-<li>usually maintained from the package owners</li>
-<li>recomented for pure python packages</li>
-</ul>
-<p>conda:</p>
-<ul class="simple">
-<li>general purposed package manager<ul>
-<li>mainly used for python</li>
-</ul>
-</li>
-<li>some packages are outdated</li>
-<li>recommented for libraries that have C++ dependencies (<code class="docutils literal"><span class="pre">numpy</span></code>, <code class="docutils literal"><span class="pre">scipy</span></code>, <code class="docutils literal"><span class="pre">matplotlib</span></code>, <code class="docutils literal"><span class="pre">cython</span></code>, <code class="docutils literal"><span class="pre">numba</span></code>, ...)<ul>
-<li>These are well maintained from anaconda</li>
-<li>numpy is usually faster when installed from conda</li>
-</ul>
-</li>
-</ul>
-</div>
 </div>
 
 
@@ -221,10 +180,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="numpy.html" class="btn btn-neutral float-right" title="Numpy/SciPy" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="packages.html" class="btn btn-neutral float-right" title="Installing and updating packages" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="poolroom.html" class="btn btn-neutral" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="install_windows.html" class="btn btn-neutral" title="Installation for Windows" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
