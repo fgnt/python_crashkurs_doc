@@ -92,6 +92,7 @@
 <li class="toctree-l1"><a class="reference internal" href="install_linux.html">Installation for Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install_windows.html">Installation for Windows</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Use in Poolroom</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#use-cocalc">Use CoCalc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="packages.html">Installing and updating packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="numpy.html">Numpy/SciPy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="editors.html">Editors</a></li>
@@ -163,15 +164,43 @@
 <span id="use-in-poolroom"></span><h1>Use in Poolroom<a class="headerlink" href="#use-in-poolroom" title="Permalink to this headline">¶</a></h1>
 <p>Open a terminal and execute the following command:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">source</span> /upb/scratch/users/c/cbj/py37/bin/activate
-<span class="nb">source</span> /upb/users/l/ldrude/public/share/anaconda3/bin/activate
 </pre></div>
 </div>
+<p>(A backup anaconda is under <code class="docutils literal"><span class="pre">source</span> <span class="pre">/upb/users/l/ldrude/public/share/anaconda3/bin/activate</span></code>.)</p>
 <p>This will setup anaconda in the current terminal.
-Go to the directory where your excersises are (Use <code class="docutils literal"><span class="pre">cd</span> <span class="pre">folder</span></code> to change the directory and <code class="docutils literal"><span class="pre">ls</span></code> to show the content of the current directory).</p>
+Go to the directory where your excersises are (Use <code class="docutils literal"><span class="pre">cd</span> <span class="pre">&lt;folder&gt;</span></code> to change the directory and <code class="docutils literal"><span class="pre">ls</span></code> to show the content of the current directory).</p>
 <p>Launch the jupyter server with the following command:</p>
 <div class="highlight-bash"><div class="highlight"><pre><span></span>jupyter notebook
 </pre></div>
 </div>
+<p>Complete example to run for the first time (i.e. initialize)</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/
+git clone https://git.cs.upb.de/chthiel/python-tutorial.git
+<span class="nb">cd</span> ~/python-tutorial
+<span class="nb">source</span> /upb/scratch/users/c/cbj/py37/bin/activate
+jupyter notebook
+</pre></div>
+</div>
+<p>Complete example to run if already initialized:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/python-tutorial
+git pull  <span class="c1"># Read the output and interpret if there is an error</span>
+<span class="nb">source</span> /upb/scratch/users/c/cbj/py37/bin/activate
+jupyter notebook
+</pre></div>
+</div>
+</div>
+<div class="section" id="use-cocalc">
+<span id="use-cocalc"></span><h1>Use CoCalc<a class="headerlink" href="#use-cocalc" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://cocalc.com/">https://cocalc.com/</a> Collaborative Calculation in the Cloud</p>
+<ul class="simple">
+<li>Open a browser</li>
+<li>Go to <a class="reference external" href="https://cocalc.com/">https://cocalc.com/</a></li>
+<li>Log in</li>
+<li>Open a project</li>
+<li>Go to settings</li>
+<li>Launch the Plain Jupyter server.</li>
+</ul>
+<p>You can also use the build in Jupyter, but it misses some features.</p>
 </div>
 
 
