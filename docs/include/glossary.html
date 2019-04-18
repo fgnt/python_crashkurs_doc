@@ -100,13 +100,16 @@
 <li class="toctree-l2"><a class="reference internal" href="#cpython">CPython</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#jupyter-notebook-ipython">Jupyter Notebook (ipython)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#common-libraries">Common Libraries</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#buildin-libraries">Buildin libraries</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#numpy-scipy">Numpy/scipy</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#matplotlib-seaborn">Matplotlib/seaborn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#plotting-matplotlib-seaborn">Plotting: Matplotlib/seaborn</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#pandas">Pandas</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#dask">Dask</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#scikit-learn-sk-learn">Scikit-Learn (SK-Learn)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#neural-networks">Neural Networks</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#sympy">SymPy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sacred">Sacred</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pytest">Pytest</a></li>
 </ul>
 </li>
 </ul>
@@ -190,15 +193,46 @@
 </div>
 <div class="section" id="common-libraries">
 <span id="common-libraries"></span><h2>Common Libraries<a class="headerlink" href="#common-libraries" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="buildin-libraries">
+<span id="buildin-libraries"></span><h3>Buildin libraries<a class="headerlink" href="#buildin-libraries" title="Permalink to this headline">¶</a></h3>
+<p>Path manypulation functions
+<a class="reference external" href="https://docs.python.org/3/library/os.path.html"><code class="docutils literal notranslate"><span class="pre">os.path</span></code></a>
+or object-oriented filesystem paths.
+<a class="reference external" href="https://docs.python.org/3/library/pathlib.html"><code class="docutils literal notranslate"><span class="pre">pathlib</span></code></a>
+</br>
+<a class="reference external" href="https://docs.python.org/3/library/tempfile.html"><code class="docutils literal notranslate"><span class="pre">tempfile</span></code></a>
+e.g.: <code class="docutils literal notranslate"><span class="pre">tempfile.TemporaryDirectory</span></code></br>
+data serialization:
+e.g.: <a class="reference external" href="https://docs.python.org/3/library/json.html"><code class="docutils literal notranslate"><span class="pre">json</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/pickle.html"><code class="docutils literal notranslate"><span class="pre">pickle</span></code></a></br>
+<a class="reference external" href="https://docs.python.org/3/library/itertools.html"><code class="docutils literal notranslate"><span class="pre">itertools</span></code></a>
+e.g.: <code class="docutils literal notranslate"><span class="pre">itertools.zip_longest</span></code></br>
+<a class="reference external" href="https://docs.python.org/3/library/functools.html"><code class="docutils literal notranslate"><span class="pre">functools</span></code></a>
+e.g.: <code class="docutils literal notranslate"><span class="pre">functools.partial</span></code></br>
+<a class="reference external" href="https://docs.python.org/3/library/collections.html"><code class="docutils literal notranslate"><span class="pre">collections</span></code></a>
+e.g.: <code class="docutils literal notranslate"><span class="pre">collections.defaultdict</span></code>, <code class="docutils literal notranslate"><span class="pre">collections.OrderedDict</span></code></br>
+<a class="reference external" href="https://docs.python.org/3/library/contextlib.html"><code class="docutils literal notranslate"><span class="pre">contextlib</span></code></a>
+e.g.: <code class="docutils literal notranslate"><span class="pre">contextlib.contextmanager</span></code></br>
+Parallelization
+<a class="reference external" href="https://docs.python.org/3/library/concurrent.futures.html"><code class="docutils literal notranslate"><span class="pre">concurrent.futures</span></code></a>
+e.g.: <code class="docutils literal notranslate"><span class="pre">concurrent.futures.ThreadPoolExecutor</span></code></br>
+Shell commands
+<a class="reference external" href="https://docs.python.org/3/library/subprocess.html"><code class="docutils literal notranslate"><span class="pre">subprocess</span></code></a>
+e.g.: <code class="docutils literal notranslate"><span class="pre">subprocess.run</span></code></br>
+Pretty printer <a class="reference external" href="https://docs.python.org/3/library/pprint.html"><code class="docutils literal notranslate"><span class="pre">pprint</span></code></a>,
+alternative <code class="docutils literal notranslate"><span class="pre">IPython.lib.pretty.pprint</span></code></p>
+<p>And many more.</p>
+</div>
 <div class="section" id="numpy-scipy">
 <span id="numpy-scipy"></span><h3>Numpy/scipy<a class="headerlink" href="#numpy-scipy" title="Permalink to this headline">¶</a></h3>
 <p>Numpy (np) is the base library for numeric problems.
 It contains the array datatype (np.ndarray) that is commonly used.
-You can find there many math funktions (<code class="docutils literal"><span class="pre">np.sum</span></code>, <code class="docutils literal"><span class="pre">np.einsum</span></code>, <code class="docutils literal"><span class="pre">np.linalg.norm</span></code>, <code class="docutils literal"><span class="pre">np.fft.fft</span></code>, ...).</p>
+You can find there many math functions (<code class="docutils literal notranslate"><span class="pre">np.sum</span></code>, <code class="docutils literal notranslate"><span class="pre">np.einsum</span></code>, <code class="docutils literal notranslate"><span class="pre">np.linalg.norm</span></code>, <code class="docutils literal notranslate"><span class="pre">np.fft.fft</span></code>, …).</p>
 </div>
-<div class="section" id="matplotlib-seaborn">
-<span id="matplotlib-seaborn"></span><h3>Matplotlib/seaborn<a class="headerlink" href="#matplotlib-seaborn" title="Permalink to this headline">¶</a></h3>
-<p>Plotting librarys. Matplotlib is the base library for plots in python. Additionally there are numerous libraries which focus on beatiful plots and easier handling which build upon matplotlib. We generally recommend to use <code class="docutils literal"><span class="pre">seaborn</span></code> for special plots such as histograms, violinplots etc.</p>
+<div class="section" id="plotting-matplotlib-seaborn">
+<span id="plotting-matplotlib-seaborn"></span><h3>Plotting: Matplotlib/seaborn<a class="headerlink" href="#plotting-matplotlib-seaborn" title="Permalink to this headline">¶</a></h3>
+<p>Plotting librarys. Matplotlib is the base library for plots in python.
+Additionally there are numerous libraries which focus on beatiful plots and easier handling which build upon matplotlib.
+We generally recommend to use <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> for special plots such as histograms, violinplots etc.</p>
 </div>
 <div class="section" id="pandas">
 <span id="pandas"></span><h3>Pandas<a class="headerlink" href="#pandas" title="Permalink to this headline">¶</a></h3>
@@ -214,11 +248,21 @@ You can find there many math funktions (<code class="docutils literal"><span cla
 </div>
 <div class="section" id="neural-networks">
 <span id="neural-networks"></span><h3>Neural Networks<a class="headerlink" href="#neural-networks" title="Permalink to this headline">¶</a></h3>
-<p>There are many Neural Networks Toolboxes available for python (SK-Learn beeing already one of them). We generally recommend using TensorFlow or PyTorch.</p>
+<p>There are many Neural Networks Toolboxes available for python (SK-Learn beeing already one of them).
+We generally recommend using TensorFlow or PyTorch.</p>
 </div>
 <div class="section" id="sympy">
 <span id="sympy"></span><h3>SymPy<a class="headerlink" href="#sympy" title="Permalink to this headline">¶</a></h3>
 <p>Symbolic computations</p>
+</div>
+<div class="section" id="sacred">
+<span id="sacred"></span><h3>Sacred<a class="headerlink" href="#sacred" title="Permalink to this headline">¶</a></h3>
+<p>Experiment configuration library (log configuration, stdout, …) and command line interface:
+<code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">path.to.experimentfile</span> <span class="pre">with</span> <span class="pre">parameter1=2</span></code></p>
+</div>
+<div class="section" id="pytest">
+<span id="pytest"></span><h3>Pytest<a class="headerlink" href="#pytest" title="Permalink to this headline">¶</a></h3>
+<p>Testing library</p>
 </div>
 </div>
 </div>
@@ -275,6 +319,7 @@ You can find there many math funktions (<code class="docutils literal"><span cla
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
 
   
 

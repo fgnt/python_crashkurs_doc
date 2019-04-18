@@ -178,22 +178,22 @@
 <span id="pure-installation-from-terminal"></span><h3>Pure installation from terminal<a class="headerlink" href="#pure-installation-from-terminal" title="Permalink to this headline">¶</a></h3>
 <p>Or if you only want to use the commandline execute the following commands:</p>
 <p>Go to the directory where you want to install anaconda</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">cd</span> /path/to/install/anaconda  <span class="c1"># e.g. cd /opt/</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /path/to/install/anaconda  <span class="c1"># e.g. cd /opt/</span>
 </pre></div>
 </div>
-<p>Download anaconda and save it under <code class="docutils literal"><span class="pre">anaconda.sh</span></code></p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>wget https://repo.anaconda.com/archive/Anaconda3-5.3.0-Linux-x86_64.sh -O anaconda.sh
+<p>Download anaconda and save it under <code class="docutils literal notranslate"><span class="pre">anaconda.sh</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget https://repo.anaconda.com/archive/Anaconda3-5.3.0-Linux-x86_64.sh -O anaconda.sh
 </pre></div>
 </div>
 <p>Install anaconda. Answer all questions that get prompted</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>bash anaconda.sh
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>bash anaconda.sh
 </pre></div>
 </div>
 <p>Alternative automatic install:
-<code class="docutils literal"><span class="pre">bash</span> <span class="pre">anaconda.sh</span> <span class="pre">-b</span> <span class="pre">-p</span> <span class="pre">anaconda</span></code>.
+<code class="docutils literal notranslate"><span class="pre">bash</span> <span class="pre">anaconda.sh</span> <span class="pre">-b</span> <span class="pre">-p</span> <span class="pre">anaconda</span></code>.
 For the arguments see <a class="reference external" href="https://stackoverflow.com/a/28035048/5766934">https://stackoverflow.com/a/28035048/5766934</a> .</p>
 <p>Delete the downloaded installer (optional)</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>rm anaconda.sh
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rm anaconda.sh
 </pre></div>
 </div>
 </div>
@@ -201,19 +201,19 @@ For the arguments see <a class="reference external" href="https://stackoverflow.
 <div class="section" id="activate">
 <span id="activate"></span><h2>Activate<a class="headerlink" href="#activate" title="Permalink to this headline">¶</a></h2>
 <p>Run the following to activate the new installed anaconda in the current shell:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">source</span> /path/to/install/anaconda/bin/activate
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> /path/to/install/anaconda/bin/activate
 </pre></div>
 </div>
 <p>Alternative if you know what you are doing:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;/path/to/install/anaconda/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;/path/to/install/anaconda/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
-<p>If you want to have the the new installed anaconda as default, add one of the above lines to your <code class="docutils literal"><span class="pre">~/.bashrc</span></code>. This will activate anaconda in all new shells (i.e. not in the ones that were opened befor this modifictaion).</p>
+<p>If you want to have the the new installed anaconda as default, add one of the above lines to your <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>. This will activate anaconda in all new shells (i.e. not in the ones that were opened befor this modifictaion).</p>
 </div>
 <div class="section" id="starting-jupyter">
 <span id="starting-jupyter"></span><h2>Starting jupyter<a class="headerlink" href="#starting-jupyter" title="Permalink to this headline">¶</a></h2>
 <p>Run the following command in a terminal, where anaconda is activated:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>jupyter notebooks
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter notebooks
 </pre></div>
 </div>
 </div>
@@ -277,6 +277,7 @@ For the arguments see <a class="reference external" href="https://stackoverflow.
       <script type="text/javascript" src="../_static/jquery.js"></script>
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
 
   
 
