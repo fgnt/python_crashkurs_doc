@@ -6,6 +6,8 @@
 Welcome to Python Tutorial's documentation!
 ===========================================
 
+This documentation is deprecated. The new documentation is on https://fgnt.github.io/python_crashkurs/#/ .
+
 .. toctree::
    :maxdepth: 2
 
